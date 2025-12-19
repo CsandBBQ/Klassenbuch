@@ -87,5 +87,19 @@ class Day
         $this->lectureMethod = $lectureMethod;
     }
 
+    public function getDate(DateTime $monday): string
+    {
+        $count = match ($this->dayOfWeek) {
+            "Montag" => 0,
+            "Dienstag" => 1,
+            "Mittwoch" => 2,
+            "Donnerstag" => 3,
+            "Freitag" => 4,
+        };
+        $date = date_modify((clone $monday), '+' . $count . ' days');
+        return date_format($date, 'd.m.Y');
+
+    }
+
 
 }

@@ -21,7 +21,13 @@ $week = new Week(1, $days, 'Rolf Haeckel', "Bemerkung", 4, new Datetime("2025-12
 </head>
 <body>
 <h1>Klassenbuch</h1>
-<h2>Thema: <input type="text" value=" <?php echo $week->getSubjecId() ?>"></h2>
+Thema:<select name="Thema" >
+    <option value="1">Thema 1</option>
+    <option value="2">Thema 2</option>
+    <option value="3">Thema 3</option>
+    <option value="4">Thema 4</option>
+    <option value="5">Thema 5</option>
+</select> <br>
 Kalenderwoche: <input type="text" value="<?php echo $week->getCalenderWeek() ?>">
 Dozent: <input type="text" value="<?php echo $week->getTeacher() ?>">
 <table>
@@ -36,7 +42,7 @@ Dozent: <input type="text" value="<?php echo $week->getTeacher() ?>">
     $days = $week->getDays();
     foreach ($days as $day) {
         echo '<tr> <td><input type="text" value="' . $day->getDayOfWeek() . '"></td>';
-        echo '<td><input type="text" value="' . 'Datum' . '"></td>';
+        echo '<td><input type="text" value="' . $day->getDate($week->getMonday()) . '"></td>';
         echo '<td> <input type="text" value="' . $day->getAmContent() . '"></td>';
         echo '<td> <input type="text" value="' . $day->getPmContent() . '"></td>';
         echo '<td><input type="checkbox" name="lectureMethod" id="1" value="1" /><label for="1">Frontalunterricht</label><br>
